@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>SuperGásBras — Entrega de Gás em até 15 min | Santa Maria DF</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{color-scheme:light}
+html{background:#F9F7F5}
+:root{
+  --red:#D4420A;--red2:#B5360A;--green:#2E7D32;--green2:#1B5E20;
+  --yellow:#F5A623;--bg:#F9F7F5;--card:#fff;--border:#E8E0D8;
+  --text:#1A1A1A;--muted:#666;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F9F7F5;color:#1A1A1A}
+
+/* NAV */
+nav{background:var(--red);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-icon{width:36px;height:36px}
+.nav-brand{font-size:18px;font-weight:700;color:#fff;letter-spacing:.02em}
+.nav-brand span{color:var(--yellow)}
+.nav-tel{display:flex;align-items:center;gap:8px;background:#fff;color:var(--red);font-size:14px;font-weight:700;padding:9px 18px;border-radius:8px;text-decoration:none;transition:opacity .15s}
+.nav-tel:hover{opacity:.88}
+.nav-tel svg{width:16px;height:16px;fill:var(--red)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--red) 0%,var(--red2) 60%,var(--green2) 100%);padding:56px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.05)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-tag{display:inline-block;background:var(--yellow);color:#1A1A1A;font-size:12px;font-weight:700;padding:5px 14px;border-radius:99px;margin-bottom:20px;letter-spacing:.05em;text-transform:uppercase;position:relative}
+.hero h1{font-size:clamp(26px,6vw,44px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;position:relative}
+.hero h1 span{color:var(--yellow)}
+.hero p{font-size:17px;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto 32px;line-height:1.7;position:relative}
+.hero-offer{display:inline-block;background:var(--yellow);color:#1A1A1A;font-size:18px;font-weight:800;padding:14px 28px;border-radius:10px;margin-bottom:28px;position:relative}
+.hero-offer small{display:block;font-size:12px;font-weight:500;margin-top:2px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-call{display:flex;align-items:center;gap:9px;background:#fff;color:var(--red);font-size:16px;font-weight:700;padding:16px 28px;border-radius:10px;text-decoration:none;transition:opacity .15s;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.btn-call:hover{opacity:.9}
+.btn-call svg{width:20px;height:20px;fill:var(--red);flex-shrink:0}
+.hero-proof{display:flex;gap:24px;justify-content:center;margin-top:40px;flex-wrap:wrap;position:relative}
+.proof-item{text-align:center;background:rgba(255,255,255,.1);border-radius:10px;padding:12px 20px;min-width:120px}
+.proof-num{font-size:22px;font-weight:800;color:#fff}
+.proof-label{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px}
+
+/* URGÊNCIA */
+.urgencia{background:var(--green);padding:16px 24px;text-align:center}
+.urgencia p{font-size:15px;color:#fff;font-weight:600}
+.urgencia span{color:var(--yellow);font-size:18px;font-weight:800}
+
+/* SEÇÃO */
+.section{padding:56px 24px}
+.container{max-width:1000px;margin:0 auto}
+.section-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px;text-align:center}
+.section-title{font-size:clamp(20px,4vw,30px);font-weight:700;color:#1A1A1A;text-align:center;margin-bottom:10px}
+.section-sub{font-size:15px;color:#666;text-align:center;max-width:480px;margin:0 auto 40px;line-height:1.7}
+
+/* DIFERENCIAIS */
+.dif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.dif-card{background:#ffffff;border:1px solid #E8E0D8;border-radius:14px;padding:24px;text-align:center;transition:transform .15s}
+.dif-card:hover{transform:translateY(-3px)}
+.dif-icon{font-size:36px;margin-bottom:12px}
+.dif-title{font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:6px}
+.dif-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.dif-card.destaque{border:2px solid var(--red);background:#FFF5F2}
+
+/* DESCONTO */
+.desconto-box{background:linear-gradient(135deg,var(--red),var(--red2));border-radius:20px;padding:48px 32px;text-align:center;position:relative;overflow:hidden}
+.desconto-box::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.07)}
+.desconto-box h2{font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;margin-bottom:10px;position:relative}
+.desconto-box h2 span{color:var(--yellow)}
+.desconto-box p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:28px;position:relative;line-height:1.6}
+.desconto-badge{display:inline-block;background:var(--yellow);color:#1A1A1A;font-size:22px;font-weight:800;padding:12px 28px;border-radius:10px;margin-bottom:20px;position:relative}
+.desconto-badge small{display:block;font-size:12px;font-weight:500}
+.btn-call-lg{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--red);font-size:16px;font-weight:700;padding:16px 32px;border-radius:10px;text-decoration:none;transition:opacity .15s;box-shadow:0 4px 16px rgba(0,0,0,.2);position:relative}
+.btn-call-lg:hover{opacity:.9}
+.btn-call-lg svg{width:22px;height:22px;fill:var(--red)}
+
+/* COMO FUNCIONA */
+.steps{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;position:relative}
+.steps-grid::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:2px;background:var(--border);z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-circle{width:64px;height:64px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;border:4px solid var(--bg)}
+.step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* ÁREA */
+.area{background:var(--green);padding:40px 24px;text-align:center}
+.area h2{font-size:22px;font-weight:700;color:#fff;margin-bottom:12px}
+.area-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.area-tag{background:rgba(255,255,255,.15);color:#fff;font-size:14px;font-weight:600;padding:8px 18px;border-radius:99px;border:1px solid rgba(255,255,255,.3)}
+.area p{font-size:14px;color:rgba(255,255,255,.7)}
+
+/* FAQ */
+.faq-list{max-width:640px;margin:0 auto}
+.faq-item{background:#ffffff;border:1px solid #E8E0D8;border-radius:10px;margin-bottom:8px;overflow:hidden}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:600;color:#1A1A1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q svg{flex-shrink:0;transition:transform .2s;color:var(--muted)}
+.faq-a{padding:0 20px;font-size:13px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+
+/* CTA FINAL */
+.cta-final{background:var(--text);border-radius:20px;padding:52px 32px;text-align:center;margin:0 24px 64px;max-width:1000px;margin-left:auto;margin-right:auto}
+.cta-final h2{font-size:clamp(22px,4vw,32px);font-weight:800;color:#fff;margin-bottom:8px}
+.cta-final p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-final .btn-call-lg{background:var(--red);color:#fff}
+.cta-final .btn-call-lg svg{fill:#fff}
+.cta-final .btn-call-lg:hover{opacity:.88}
+
+/* FOOTER */
+footer{background:var(--red2);padding:28px 24px;text-align:center}
+footer p{font-size:13px;color:rgba(255,255,255,.5)}
+footer span{color:rgba(255,255,255,.8);font-weight:600}
+footer .slogan{font-size:14px;color:rgba(255,255,255,.7);font-style:italic;margin-bottom:8px}
+
+/* FLOATING BTN */
+.float-btn{position:fixed;bottom:24px;right:24px;z-index:200;display:flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:14px;font-weight:700;padding:14px 20px;border-radius:99px;text-decoration:none;box-shadow:0 4px 20px rgba(212,66,10,.5);transition:opacity .15s;animation:pulse 2s infinite}
+.float-btn svg{width:20px;height:20px;fill:#fff}
+.float-btn:hover{opacity:.9}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(212,66,10,.5)}50%{box-shadow:0 4px 32px rgba(212,66,10,.8)}}
+
+@media(max-width:600px){
+  .hero-proof{gap:12px}
+  .proof-item{min-width:100px;padding:10px 14px}
+  .steps-grid::before{display:none}
+  .desconto-box{padding:36px 20px}
+  .cta-final{margin:0 16px 48px;padding:40px 20px}
+}
+
+/* Force light mode — prevent dark mode override */
+@media (prefers-color-scheme: dark) {
+  html, body { background:#F9F7F5 !important; color:#1A1A1A !important; }
+  .section, #faq, #diferenciais { background:#F9F7F5 !important; }
+  .dif-card { background:#ffffff !important; color:#1A1A1A !important; }
+  .faq-item { background:#ffffff !important; }
+  .faq-q { color:#1A1A1A !important; }
+  .faq-a { color:#666 !important; }
+  .section-title { color:#1A1A1A !important; }
+  .section-sub { color:#666 !important; }
+  .section-tag { color:#D4420A !important; }
+  .dif-title { color:#1A1A1A !important; }
+  .dif-desc { color:#666 !important; }
+  .step-title { color:#1A1A1A !important; }
+  .step-desc { color:#666 !important; }
+  .cta-final { background:#1A1A1A !important; }
+  .cta-final h2 { color:#ffffff !important; }
+  .cta-final p { color:rgba(255,255,255,.5) !important; }
+}
+
+/* PROVA SOCIAL */
+.prova-bg{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 24px}
+.stars{color:#F5A623;font-size:18px;margin-bottom:4px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.review-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px}
+.review-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.review-badge{display:inline-block;font-size:10px;font-weight:600;background:#E8F5E9;color:var(--green);padding:2px 8px;border-radius:99px;margin-bottom:8px}
+.review-text{font-size:13px;color:var(--muted);line-height:1.6;font-style:italic}
+.review-text::before{content:'"';color:var(--red);font-size:18px;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- FLOATING -->
+<a class="float-btn" href="tel:+556130410200">
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  Pedir agora
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-icon" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke="#fff" stroke-width="2.5"/>
+      <path d="M20 8 L20 14 M14 20 L20 14 L26 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="20" cy="20" r="4" fill="#fff"/>
+    </svg>
+    <div class="nav-brand">SUPER<span>GAS</span>BRAS</div>
+  </div>
+  <a class="nav-tel" href="tel:+556130410200">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    (61) 3041-0200
+  </a>
+</nav>
+
+<!-- URGÊNCIA -->
+<div class="urgencia">
+  <p>🔥 Ligue agora e ganhe <span>R$ 8 de desconto</span> na entrega — oferta válida hoje!</p>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">⚡ +30.000 entregas realizadas em Santa Maria DF</div>
+  <h1>Gás acabou?<br><span>Em até 15 minutos está na sua porta.</span></h1>
+  <p>Atendemos Residencial Santos Dumont, Santa Maria DF e Total Ville. Ligue agora — sem sair de casa, sem espera, sem enrolação.</p>
+  <div class="hero-offer">
+    🎁 R$ 8 de desconto pra quem ligar hoje
+    <small>Direto para o número abaixo 👇</small>
+  </div>
+  <div class="hero-btns">
+    <a class="btn-call" href="tel:+556130410200">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      📞 (61) 3041-0200 — Pedir agora
+    </a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item">
+      <div class="proof-num">+30.000</div>
+      <div class="proof-label">Entregas realizadas</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">+1.000</div>
+      <div class="proof-label">Clientes atendidos</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">15 min</div>
+      <div class="proof-label">Tempo de entrega</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">5 ⭐</div>
+      <div class="proof-label">no Google</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROVA SOCIAL -->
+<div class="prova-bg">
+  <div class="container">
+    <div class="section-tag">O que dizem nossos clientes no Google</div>
+    <div class="section-title">+1.000 clientes. Veja o que falam sobre nós.</div>
+    <div class="section-sub">⭐⭐⭐⭐⭐ Avaliações reais do Google</div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-name">Patrícia Lambarine</div>
+        <div class="review-text">As entregas são sempre rápidas. Todas as vezes que precisei de suporte me atenderam super bem. Empresa está de parabéns!</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-name">Francisco Z. de Melo</div>
+        <div class="review-text">Atendimento ótimo, entrega imediato.</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-name">Paulo Henrique Pinheiro</div>
+        <div class="review-text">Ótimo atendimento e entrega super rápida.</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-name">Eduardo Rocha <span class="review-badge">Local Guide</span></div>
+        <div class="review-text">Entrega rápida, preço justo.</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-name">Otávio S.</div>
+        <div class="review-text">Entrega muito rápida.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<div class="section" id="diferenciais" style="background:#F9F7F5">
+  <div class="container">
+    <div class="section-tag">Por que escolher a SuperGásBras</div>
+    <div class="section-title">Entrega que você pode confiar</div>
+    <div class="section-sub">Rapidez, segurança e preço justo — comprovados por +1.000 clientes.</div>
+    <div class="dif-grid">
+      <div class="dif-card destaque">
+        <div class="dif-icon">⚡</div>
+        <div class="dif-title">Entrega em até 15 minutos</div>
+        <div class="dif-desc">Sem horas de espera. Confirmou o pedido, em 15 minutos está na sua porta — seja de manhã, tarde ou noite.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🛡️</div>
+        <div class="dif-title">Produto lacrado e seguro</div>
+        <div class="dif-desc">Botijões e galões entregues com lacre original. Você recebe o produto do jeito que tem que ser: seguro e sem adulteração.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">💰</div>
+        <div class="dif-title">Preço justo, sem surpresas</div>
+        <div class="dif-desc">Transparência total no valor antes de confirmar. E ligando hoje, você ainda garante R$ 8 de desconto direto na entrega.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🏠</div>
+        <div class="dif-title">Gás e água no mesmo pedido</div>
+        <div class="dif-desc">Resolve tudo numa ligação só. Gás de cozinha + galão de água, entregues juntos, sem segunda viagem.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🤝</div>
+        <div class="dif-title">Somos da sua região</div>
+        <div class="dif-desc">Atendemos Santa Maria DF há anos. Conhecemos cada rua, cada bairro — e entregamos com cuidado de vizinho pra vizinho.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">💧</div>
+        <div class="dif-title">Sem sair de casa</div>
+        <div class="dif-desc">Ligue, confirme o pedido e aguarde. Não precisa ir a lugar nenhum — a gente chega até você.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESCONTO -->
+<div class="section" style="background:var(--bg);padding:48px 24px">
+  <div class="container">
+    <div class="desconto-box">
+      <h2>Ligue agora e economize<br><span>R$ 8 na sua entrega</span></h2>
+      <p>Oferta exclusiva pra quem ligar hoje. Não perde — o desconto é aplicado direto no valor da sua entrega, sem cupom, sem burocracia. Só mencionar ao atender.</p>
+      <div class="desconto-badge">
+        R$ 8 de desconto
+        <small>Válido somente hoje</small>
+      </div>
+      <br><br>
+      <a class="btn-call-lg" href="tel:+556130410200">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (61) 3041-0200 — Garantir desconto
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="steps section" id="como-funciona">
+  <div class="container">
+    <div class="section-tag">Simples assim</div>
+    <div class="section-title">Como pedir</div>
+    <div class="section-sub">3 passos. Menos de 1 minuto pra resolver.</div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-circle">📞</div>
+        <div class="step-title">1. Ligue para a gente</div>
+        <div class="step-desc">Ligue para (61) 3041-0200 e informe seu endereço e o que precisa.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">✅</div>
+        <div class="step-title">2. Confirme o pedido</div>
+        <div class="step-desc">A gente confirma disponibilidade, informa o valor e aplica o desconto de R$ 8.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">🛵</div>
+        <div class="step-title">3. Receba em até 15 min</div>
+        <div class="step-desc">Em até 15 minutos, seu gás ou água chegam na porta — lacrados e com segurança.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ÁREA DE ATENDIMENTO -->
+<div class="area">
+  <h2>📍 Você é da nossa área?</h2>
+  <p style="color:rgba(255,255,255,.8);font-size:14px;margin-bottom:14px">Atendemos com entrega expressa em:</p>
+  <div class="area-tags">
+    <div class="area-tag">Residencial Santos Dumont</div>
+    <div class="area-tag">Santa Maria – DF</div>
+    <div class="area-tag">Total Ville</div>
+  </div>
+  <p>Não tem certeza se chegamos até você? Ligue e a gente confirma em segundos — <strong>(61) 3041-0200</strong></p>
+</div>
+
+<!-- FAQ -->
+<div class="section" id="faq" style="background:#F9F7F5">
+  <div class="container">
+    <div class="section-tag">Dúvidas</div>
+    <div class="section-title">Perguntas frequentes</div>
+    <div class="section-sub">Tem dúvida? A resposta provavelmente está aqui — ou ligue: <strong>(61) 3041-0200</strong></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Qual o prazo de entrega?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Em até 15 minutos após a confirmação do pedido, para os bairros que atendemos. É a nossa promessa — e nossos clientes confirmam isso nas avaliações do Google.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o desconto de R$ 8?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Simples: ligue hoje para (61) 3041-0200 e mencione o desconto ao ser atendido. Ele é aplicado automaticamente no valor da entrega. Sem cupom, sem código.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vocês entregam galão de água também?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Sim! Entregamos gás de cozinha e galões de água. Você pode pedir os dois no mesmo atendimento.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quais formas de pagamento são aceitas?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Ligue e confirme as formas disponíveis no momento do pedido — (61) 3041-0200.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O produto é seguro e lacrado?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Sempre. Botijões e galões entregues com lacre original, seguindo todos os padrões de segurança. Você recebe o produto do jeito que saiu do fornecedor.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vocês atendem à noite ou aos fins de semana?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Ligue para (61) 3041-0200 e confirme nossos horários de atendimento.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div style="padding:0 0 0">
+  <div class="cta-final">
+    <h2>Gás acabou na hora errada?<br>A gente resolve em 15 minutos.</h2>
+    <p>+30.000 entregas realizadas. +1.000 clientes satisfeitos. Uma ligação resolve.</p>
+    <a class="btn-call-lg" href="tel:+556130410200">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Ligar agora — (61) 3041-0200
+    </a>
+    <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)">🎁 Lembre de mencionar o desconto de R$ 8</p>
+  </div>
+</div>
+
+<footer>
+  <div class="slogan">É mais que energia. É Super.</div>
+  <p>© 2026 <span>SuperGásBras</span> · Santa Maria – DF · (61) 3041-0200</p>
+</footer>
+
+<script>
+function toggleFaq(el){
+  var item=el.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
